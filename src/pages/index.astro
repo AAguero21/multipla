@@ -10,7 +10,12 @@ import TestimonialsSection from "@components/sections/testimonials/TestimonialsS
 import PricingSection from "@components/sections/pricing/PricingSection.astro";
 import FAQ from "@components/sections/FAQ.astro";
 import AnnouncementBanner from "@components/ui/banners/AnnouncementBanner.astro";
+<<<<<<< HEAD
 import heroImage from "@images/multipla/Logo_Multipla_solo_negro.png";
+=======
+import heroImage from "@images/hero-image-rucso.png";
+import homeImage from "@images/home_img.png"
+>>>>>>> cc4c27b52a37d0f96a0badfde8ba0d28549f2941
 import faqs from "@data/faqs.json";
 import features from "@data/features.json";
 import pricing from "@data/pricing.json";
@@ -46,7 +51,7 @@ const avatarSrcs: Array<string> = [
     rating=`<span class="font-bold">4.8</span> / 5`
     starCount={4}
     reviews=`From Over <span class="font-bold">12.8k</span> Reviews`
-    src={heroImage}
+    src={homeImage}
     alt="Stack of ScrewFast product boxes containing assorted hardware tools"
   />
 
@@ -65,6 +70,16 @@ const avatarSrcs: Array<string> = [
     primaryBtnURL="/contact"
   />
 
+<<<<<<< HEAD
+=======
+  <FeaturesGeneral
+    title="Nuestras soluciones"
+    subTitle="Te acompañamos con nuestro equipo de profesionales."
+    src={featureImage}
+    alt="ScrewFast products in floating boxes"
+    features={features}
+  />
+>>>>>>> cc4c27b52a37d0f96a0badfde8ba0d28549f2941
 
 
   <!-- <FeaturesNavs
@@ -136,9 +151,13 @@ const avatarSrcs: Array<string> = [
     ]}
   />
 
-  <PricingSection pricing={pricing} />
+  <!-- <PricingSection pricing={pricing} /> -->
 
+<<<<<<< HEAD
   <FAQ title="Frequently<br />asked questions" faqs={faqs} /> -->
+=======
+  <!-- <FAQ title="Frequently<br />asked questions" faqs={faqs} /> -->
+>>>>>>> cc4c27b52a37d0f96a0badfde8ba0d28549f2941
 
   <!-- <HeroSectionAlt
     title="Let's Build Together"
