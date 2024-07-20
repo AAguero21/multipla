@@ -5,8 +5,9 @@ import NavLink from "@components/ui/links/NavLink.astro";
 import Authentication from "./Authentication.astro";
 import enStrings from "@utils/navigation.ts";
 import frStrings from "@utils/fr/navigation.ts";
-import BrandLogo from "@components/BrandLogo.astro";
-import LanguagePicker from "@components/ui/LanguagePicker.astro";
+//import BrandLogo from "@src\images\LogoMultipla.png";
+//import LanguagePicker from "@components/ui/LanguagePicker.astro";
+import MultiplaLogo from "@src\images\LogoMultipla.avif";
 
 
 // Select the correct translation based on the page's lang prop:
@@ -30,7 +31,7 @@ const homeUrl = Astro.currentLocale === "fr" ? "/fr" : "/";
         href={homeUrl}
         aria-label="Brand"
       >
-      <img src="../../../public/img/icon.png" alt="logo" class="w-40 h-30">
+      <img src="../../../public/img/LogoMultipla.png" alt="logo" class="w-40 h-30">
         <!-- <BrandLogo class="h-auto w-24" /> -->
       </a>
       <!-- Collapse toggle for smaller screens -->

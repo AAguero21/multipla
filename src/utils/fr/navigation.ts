@@ -33,6 +33,9 @@ const socialLinks = {
   github: "https://github.com/mearashadowfax/ScrewFast",
   google: "#",
   slack: "#",
+  whatsapp: "#",
+  instagram:"#",
+  linkedin:"#"
 };
 
 export default {
