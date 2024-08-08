@@ -4,12 +4,10 @@ import vercelStatic from "@astrojs/vercel/static";
 import sitemap from "@astrojs/sitemap";
 import compressor from "astro-compressor";
 import starlight from "@astrojs/starlight";
-
 import netlify from "@astrojs/netlify";
 
 // https://astro.build/config
 export default defineConfig({
-  // https://docs.astro.build/en/guides/images/#authorizing-remote-images
   site: "https://screwfast.uk",
   image: {
     domains: ["images.unsplash.com"]
@@ -28,10 +26,8 @@ export default defineConfig({
   integrations: [tailwind(), sitemap({
     i18n: {
       defaultLocale: "en",
-      // All urls that don't contain `fr` after `https://screwfast.uk/` will be treated as default locale, i.e. `en`
       locales: {
         en: "en",
-        // The `defaultLocale` value must present in `locales` keys
         fr: "fr"
       }
     }
@@ -69,7 +65,6 @@ export default defineConfig({
         lang: "zh-CN"
       }
     },
-    // https://starlight.astro.build/guides/sidebar/
     sidebar: [{
       label: "Quick Start Guides",
       translations: {
@@ -130,7 +125,7 @@ export default defineConfig({
     gzip: false,
     brotli: true
   })],
-  output: "static",
+  output: "server", // Cambiado de 'static' a 'server'
   experimental: {
     clientPrerender: true,
     directRenderScript: true

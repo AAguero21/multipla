@@ -2,10 +2,12 @@
 // Import the necessary modules
 import { Image } from "astro:assets";
 import PrimaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
+
 // Destructure the props passed to the Astro component
-const { title, subTitle, btnExists, btnTitle, btnURL, img, imgAlt } =
+const { title, subTitle, btnExists, btnTitle, btnURL, img, imgAlt, imgClass} =
   Astro.props;
-// Define TypeScript interface for props
+
+  // Define TypeScript interface for props
 interface Props {
   title: string;
   subTitle: string;
@@ -14,6 +16,7 @@ interface Props {
   btnURL?: string;
   img: any;
   imgAlt: any;
+  imgClass?: string;
 }
 ---
 
@@ -23,11 +26,11 @@ interface Props {
 >
   <!-- The Image component which renders the image -->
   <Image
-    class="w-full rounded-xl"
+    class= {`w-full rounded-xl hidden md:block ${imgClass || ''}`}
     src={img}
     alt={imgAlt}
     draggable={"false"}
-    format={"avif"}
+    format={"png"}
   />
   <!-- The container for title, subtitle, and optional CTA button -->
   <div class="mt-4 md:mt-0">
@@ -39,11 +42,19 @@ interface Props {
     </h2>
     <!-- The subtitle of the section -->
     <p
-      class="mb-4 max-w-prose text-pretty font-light text-neutral-600 dark:text-neutral-400 sm:text-lg"
+      class="mb-4 max-w-prose text-pretty font-dark text-neutral-800 dark:font-white dark:text-neutral-200 sm:text-lg"
     >
       {subTitle}
     </p>
     <!-- Conditionally render the Primary CTA button if btnExists is true -->
     {btnExists ? <PrimaryCTA title={btnTitle} url={btnURL} /> : null}
   </div>
+  
+  <Image
+    class= {`w-full rounded-xl md:hidden ${imgClass || ''}`}
+    src={img}
+    alt={imgAlt}
+    draggable={"false"}
+    format={"png"}
+  />
 </section>

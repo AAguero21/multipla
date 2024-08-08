@@ -2,21 +2,21 @@
   {
     "heading": "Relaciones Laborales",
     "content": "Gestionamos de manera experta las relaciones con los sindicatos clave en la industria petrolera y de transporte.",
-    "svg": "groups"
+    "png": "relacionesLaborales"
   },
   {
     "heading": "Relaciones Institucionales",
     "content": "Colaboramos estrechamente con municipios para acciones comunitarias significativas.",
-    "svg": "verified"
+    "png": "relacionesInstitucionales"
   },
   {
     "heading": "Recursos Humanos",
     "content": "Nuestra división de Recursos Humanos se dedica a satisfacer las necesidades de personal en diversas áreas operativas y administrativas.",
-    "svg": "books"
+    "png": "recurosHumanos"
   },
   {
     "heading": "Asesoramiento Legal",
     "content": "En el departamento legal de Multipla, ofrecemos un sólido respaldo en asesoramiento jurídico y representación tanto en ámbitos administrativos como jurisdiccionales.",
-    "svg": "frame"
+    "png": "asesoramientoLegal"
   }
 ]

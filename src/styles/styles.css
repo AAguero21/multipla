@@ -1,0 +1,50 @@
+/* Estilos generales */
+.small-img, .large-img, .large-img-right {
+  width: 100%;
+  max-width: 350px; 
+  height: auto; 
+}
+
+.small-img {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.large-img, .large-img-right {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Estilos para pantallas pequeñas (celulares) */
+@media (max-width: 767px) {
+  .small-img, .large-img, .large-img-right {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+}
+
+/* Estilos para pantallas medianas (tablets) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .small-img, .large-img, .large-img-right {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Estilos para pantallas grandes (escritorios) */
+@media (min-width: 1024px) {
+  .small-img, .large-img, .large-img-right {
+    width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .large-img-right {
+    margin-right: 20%;
+    margin-left: auto; /* Alinea la imagen a la derecha */
+  }
+}
+
+

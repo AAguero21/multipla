@@ -28,14 +28,9 @@ const footerLinks = [
 ];
 
 const socialLinks = {
-  facebook: "#",
-  x: "#",
-  github: "https://github.com/mearashadowfax/ScrewFast",
-  google: "#",
-  slack: "#",
-  whatsapp: "#",
-  instagram:"#",
-  linkedin:"#"
+  instagram: "https://www.instagram.com/multipla_consultora?igsh=MWI5dWk1cHBpNThpbQ==",
+  whatsapp: "",
+  linkedln: "https://www.linkedin.com/company/consultoram%C3%BAltipla/",
 };
 
 export default {

@@ -1,0 +1,26 @@
+---
+// Importa el tipo Props para definir las propiedades
+interface Props {
+  label?: string;
+  id: string;
+}
+
+const { label = "Carga tu CV:", id } = Astro.props;
+---
+
+<!-- Contenedor para la etiqueta y el campo de carga de archivos -->
+<div>
+  <!-- Etiqueta para el campo de carga de archivos -->
+  <label for={id} class="block text-sm font-medium text-neutral-700 dark:text-neutral-300">
+    {label}
+  </label>
+  <!-- Campo de carga de archivos -->
+  <input
+    type="file"
+    id={id}
+    accept=".pdf,.doc,.docx"
+    class="block w-full mt-1 rounded-lg border-2 border-neutral-800 bg-neutral-50 px-3 py-2 text-sm text-neutral-700 placeholder:text-neutral-500 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500 dark:border-neutral-600 dark:bg-neutral-700 dark:text-neutral-300 dark:placeholder:text-neutral-400 dark:focus:border-emerald-400 dark:focus:ring-emerald-400"
+    placeholder="Selecciona un archivo"
+    required
+  />
+</div>

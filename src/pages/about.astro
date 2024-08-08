@@ -1,19 +1,22 @@
 ---
 import MainLayout from "@/layouts/MainLayout.astro";
-import { SITE } from "@data/constants";
-import blueprints from "@images/blueprints-image.avif";
-import personWorking from "@images/person-working.avif";
+import workcompany from "@images/multipla/work_in_company.png";
+import experience from "@images/multipla/Conocenos.png";
+import LeftSection from "@/components/ui/blocks/LeftSection.astro";
+import RightSection from "@/components/ui/blocks/RightSection.astro";
+
+/*
 import beforeAfter from "@images/before-after.avif";
 import constructionWorkers from "@images/construction-workers.avif";
 import aerialView from "@images/aerial-view.avif";
 import usingTools from "@images/using-tools.avif";
 import progressBuilding from "@images/progress-building.avif";
 import underConstruction from "@images/under-construction.avif";
-import LeftSection from "@/components/ui/blocks/LeftSection.astro";
-import RightSection from "@/components/ui/blocks/RightSection.astro";
+import { SITE } from "@data/constants";
+*/
 
 
-const pageTitle: string = `About | ${SITE.title}`;
+const pageTitle: string = `Quienes Somos`;
 interface Article {
   isRightSection: boolean;
   title: string;
@@ -33,37 +36,19 @@ interface Article {
 const articles: Article[] = [
   {
     isRightSection: true,
-    title: "Relaciones Laborales e Instucionales",
+    title: "OBJETIVO",
     subTitle:
-      "Embarking on a construction project can be overwhelming. With our professional consultation services, we guide you through every stage, ensuring you make informed decisions. Whether you are a DIY enthusiast or a skilled contractor, our experts are on hand to offer tailored advice on product selection, project scope, and compliance with local regulations.",
+      "Nuestro objetivo es acompañar en el desarrollo de negocios y proyectos a empresarios y emprendedores, proporcionando asesoramiento y asistencia técnica especializada para alcanzar sus metas y objetivos económicos, sociales y personales.",
     single: false,
-    imgOne: blueprints,
-    imgOneAlt: "Blueprints and digital tablet with construction plans.",
-    imgTwo: personWorking,
-    imgTwoAlt: "Person working in the office",
+    imgOne: workcompany,
+    imgOneAlt: "Work in Company.",
+    imgTwo: experience,
+    imgTwoAlt: "Experiencia en el sector hidrocarburifero",
   },
-  {
-    isRightSection: false,
-    title: "Recursos Humanos",
-    subTitle:
-      "Our skilled craftsmen bring precision and excellence to every construction project. From minor installations to substantial structural work, ScrewFast offers reliable construction services to turn your plans into tangible outcomes. We ensure the highest standards of safety and workmanship, utilizing top-quality tools and materials from our extensive inventory.",
-    img: beforeAfter,
-    imgAlt: "Construction site before and after",
-    
-  },
-  {
-    isRightSection: true,
-    title: "Asesoria Legal",
-    subTitle:
-      "Effective project management is at the heart of any successful build. ScrewFast provides thorough planning and robust management services that keep your project on time and within budget. Let us handle the complexities of workflow coordination, resource allocation, and stakeholder communication while you focus on your vision.",
-    single: false,
-    imgOne: constructionWorkers,
-    imgOneAlt: "Construction workers orchestrating a project",
-    imgTwo: aerialView,
-    imgTwoAlt: "Aerial view of managed construction",
-  },
+  
 ];
 ---
+
 <MainLayout
   title={pageTitle}
   structuredData={{
@@ -71,7 +56,7 @@ const articles: Article[] = [
     "@type": "WebPage",
     "@id": "https://screwfast.uk/about",
     "url": "https://screwfast.uk/about",
-    "name": "Sobre Nosotros",
+    "name": "Quienes Somos",
     "description":
       "Have questions or want to discuss a project? Reach out, and let's craft the perfect solution with our tools and services.",
     "isPartOf": {
@@ -88,9 +73,10 @@ const articles: Article[] = [
   <h2
   class="mb-4 text-balance text-4xl font-extrabold tracking-tight text-neutral-800 dark:text-neutral-200"
 >
-  Quienes Somos
+  Conocenos
 </h2>
-  <p class="mb-4  text-pretty font-light text-neutral-600 dark:text-neutral-400 sm:text-lg">Somos un equipo de profesionales, con más de 20 años de experiencia en el sector hidrocarburífero de las cuencas neuquina, cuyana y austral. Asesoramos a empresas de servicios petroleros en estrategias de desarrollo, fomentando su competitividad y crecimiento. Facilitamos vínculos entre empresas del sector para proyectos conjuntos, formando equipos multidisciplinarios. Nos destacamos como un equipo externo que trabaja in company, optimizando costos laborales, mejorando la performance competitiva y fortaleciendo el liderazgo organizacional.</p>
+  <p class="mb-4  text-pretty font-dark text-neutral-800 dark:font-white dark:text-neutral-200 sm:text-lg">
+    Somos un equipo de profesionales, con más de <strong class="text-emerald-500">20 años de experiencia</strong> en el sector hidrocarburífero de las cuencas neuquina, cuyana y austral. Asesoramos a empresas de servicios petroleros en estrategias de desarrollo, fomentando su competitividad y crecimiento. <strong class="text-emerald-500">Facilitamos vínculos entre empresas del sector para proyectos conjuntos, formando equipos multidisciplinarios</strong>. Nos destacamos como un <strong class="text-emerald-500">equipo externo que trabaja in company, optimizando costos laborales, mejorando la performance competitiva y fortaleciendo el liderazgo organizacional</strong>.</p>
   
   {
     articles.map(article => {

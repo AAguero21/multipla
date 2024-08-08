@@ -40,55 +40,288 @@ interface Props {
 }
 ---
 
-<!-- Defining a grid container that holds all the content -->
-<section
-  class="mx-auto grid max-w-[85rem] gap-4 px-4 py-14 sm:px-6 md:grid-cols-3 md:items-center md:gap-8 lg:px-8 2xl:max-w-full min-h-screen"
->
-  <!-- Title and description -->
-  <div class="col-span-2">
-    <!-- Each h1 and p tag renders a portion of the title and subTitle defined above -->
-    <h1
-      class="block text-balance text-3xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 sm:text-4xl lg:text-6xl lg:leading-tight"
-    >
-      <!-- About Fragment: https://docs.astro.build/en/basics/astro-syntax/#fragments -->
-      <Fragment set:html={title} />
-    </h1>
-    {subTitle &&
-    <p
-      class="mt-3 text-pretty text-lg leading-relaxed text-neutral-700 dark:text-neutral-400 lg:w-4/5"
-    >
-      {subTitle}
-    </p>
-  }
-    <!-- Action Button Section: This section includes two CTAs with their own styles and URL -->
-    <div class="mt-7 grid w-full gap-3 sm:inline-flex">
-      {primaryBtn && 
-      <PrimaryCTA title={primaryBtn} url={primaryBtnURL} />
+<section class="mx-auto max-w-[85rem] px-4 py-14 sm:px-6 lg:px-8 min-h-screen">
+  <div class="grid gap-4 md:grid-cols-3 md:items-center"> <!-- Cambiado de 2 a 3 columnas -->
+    <!-- Title and description -->
+    <div class="md:col-span-2 md:pr-8 flex flex-col justify-center"> <!-- Ocupa 2 de las 3 columnas -->
+      <h1 class="text-3xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 sm:text-4xl lg:text-6xl lg:leading-tight">
+        <Fragment set:html={title} />
+      </h1>
+      {subTitle &&
+      <p class="mt-2 text-lg leading-snug text-neutral-700 dark:text-neutral-400">
+        {subTitle}
+      </p>
       }
-      {secondaryBtn && 
-      <SecondaryCTA title={secondaryBtn} url={secondaryBtnURL} />
-      }
+      <div class="mt-7 flex flex-wrap gap-3">
+        {primaryBtn && <PrimaryCTA title={primaryBtn} url={primaryBtnURL} />}
+        {secondaryBtn && <SecondaryCTA title={secondaryBtn} url={secondaryBtnURL} />}
+      </div>
     </div>
-
-    <!-- Review Section: This section presents avatars, review ratings and the number of reviews -->
-    <!-- { withReview ? (
-    <ReviewComponent avatars={avatars} starCount={starCount} rating={rating} reviews={reviews} />
-    ) : "" } -->
-
-  </div>
-  <!-- Hero Image Section -->
-  <div class="flex w-full">
-      <div class="top-12 overflow-hidden">
-	{src && alt &&
-	<Image
+    <!-- Image -->
+    <div class="flex justify-center md:justify-end mt-8 md:mt-0">
+      {src && alt &&
+      <Image
         src={src}
         alt={alt}
-        class="h-full w-full scale-150 object-cover object-center"
+        class="responsive-image"
         draggable={"false"}
         loading={"eager"}
-        format={"avif"}
-	 />
-	}
+        format={"png"}
+      />
+      }
     </div>
   </div>
 </section>
+
+
+
+
+
+<style>
+  .responsive-image {
+  width: 90%;
+  height: auto;
+  aspect-ratio: 1 / 1; /* Relación de aspecto fija de 1:1 */
+  max-width: 100%; /* Asegura que la imagen no exceda el ancho del contenedor */
+}
+
+@media (min-width: 1081px) {
+  .responsive-image {
+    width: 80%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .responsive-image {
+    width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .responsive-image {
+    width: 80%;
+  }
+}
+
+@media (max-width: 480px) {
+  .responsive-image {
+    width: 90%;
+  }
+}
+
+/* Variantes para diferentes dispositivos */
+
+/* iPhone 6/7/8 Plus */
+@media (max-width: 414px) and (min-height: 736px) {
+  .responsive-image {
+    width: 85%;
+  }
+}
+
+/* iPhone 12/13 Pro Max */
+@media (max-width: 428px) and (min-height: 926px) {
+  .responsive-image {
+    width: 85%;
+  }
+}
+
+/* Samsung Galaxy S10 */
+@media (max-width: 360px) and (min-height: 760px) {
+  .responsive-image {
+    width: 90%;
+  }
+}
+
+/* Samsung Galaxy Note 10 */
+@media (max-width: 412px) and (min-height: 869px) {
+  .responsive-image {
+    width: 85%;
+  }
+}
+
+/* Motorola G7 Play */
+@media (max-width: 360px) and (min-height: 720px) {
+  .responsive-image {
+    width: 90%;
+  }
+}
+
+/* Motorola Edge */
+@media (max-width: 384px) and (min-height: 853px) {
+  .responsive-image {
+    width: 85%;
+  }
+}
+
+/* Tablets (iPad, Samsung Galaxy Tab) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .responsive-image {
+    width: 80%;
+  }
+}
+
+/* iPad Pro 12.9 */
+@media (min-width: 1024px) and (max-width: 1366px) {
+  .responsive-image {
+    width: 80%;
+  }
+}
+
+/* iPhone SE */
+@media (max-width: 320px) and (min-height: 568px) {
+  .responsive-image {
+    width: 90%;
+  }
+}
+
+</style>
+
+
+
+<!-- Image 
+<style>
+  .image-container {
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    width: 100%; /* Cambié de 500 a 100% para que ocupe todo el ancho disponible */
+    height: auto;            
+    padding: 1rem;          
+  }
+
+  .responsive-image {
+    max-width: 100%;         
+    height: auto;           
+    max-height: 400px;       
+  }
+
+  /* Pantallas grandes (mayores a 1080px) */
+  @media (min-width: 1081px) {
+    .responsive-image {
+      max-height: 500px; 
+      max-width: 100%;
+    }
+  }
+
+  /* Pantallas medianas */
+  @media (max-width: 1024px) {
+    .responsive-image {
+      max-height: 400px;
+      justify-content: center;    
+    }
+  }
+
+  @media (max-width: 768px) {
+    .responsive-image {
+      max-height: 100%;
+    }
+  }
+
+  @media (min-width: 769px) {
+    .responsive-image {
+      max-height: 100%;
+      width: auto;
+      max-width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+    }
+  }
+
+  @media (min-width: 481px) and (max-width: 768px) {
+    .responsive-image {
+      max-height: 90%;
+      width: auto;
+      max-width: 95%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .image-container {
+      height: 70vh;         
+      padding: 0.25rem;     
+    }
+    .responsive-image {
+      max-height: 70%;     
+      max-width: 90%;      
+    }
+  }
+
+  @media (min-width: 415px) and (max-width: 768px) {
+    .responsive-image {
+      max-height: 90%;
+      width: auto;
+      max-width: 90%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+    }
+  }
+
+  @media (min-width: 376px) and (max-width: 414px) {
+    .responsive-image {
+      max-height: 80%;
+      width: auto;
+      max-width: 90%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+    }
+  }
+
+  @media (max-width: 375px) {
+    .responsive-image {
+      max-height: 80%;
+      width: auto;
+      max-width: 90%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+    }
+  }
+
+  @media (max-width: 360px) {
+    .responsive-image {
+      max-height: 60%;
+      width: auto;
+      max-width: 80%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+    }
+  }
+
+  @media (min-width: 361px) and (max-width: 400px) {
+    .responsive-image {
+      max-height: 90%;
+      width: auto;
+      max-width: 90%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+    }
+  }
+
+  @media (min-width: 401px) and (max-width: 480px) {
+    .responsive-image {
+      max-height: 80%;
+      width: auto;
+      max-width: 90%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+    }
+  }
+</style>
+-->

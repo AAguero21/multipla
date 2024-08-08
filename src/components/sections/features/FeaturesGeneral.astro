@@ -3,11 +3,14 @@
 import { Image } from "astro:assets";
 import IconBlock from "@components/ui/blocks/IconBlock.astro";
 import Icon from "@components/ui/icons/Icon.astro";
+import PrimaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
+
 
 interface Feature {
   heading: string;
   content: string;
-  svg: string;
+  png: string;
+  
 }
 
 interface Props {
@@ -16,9 +19,11 @@ interface Props {
   features?: Feature[];
   src?: any;
   alt?: string;
+  primaryBtn?: string;
+  primaryBtnURL?: string;
 }
 // Define props from Astro
-const { title, subTitle, src, alt, features } = Astro.props;
+const { title, subTitle, src, alt, features, primaryBtn, primaryBtnURL, } = Astro.props;
 ---
 
 <section
@@ -44,22 +49,32 @@ const { title, subTitle, src, alt, features } = Astro.props;
   <div class="flex flex-col items-center"></div>
   <!-- Displaying the main content consisting of title, subtitle, and several `IconBlock` components -->
   <div class="mt-5 grid gap-8 lg:mt-16 lg:grid-cols-3 lg:gap-12">
+    
     <!-- Block for title and subtitle -->
-    <div class="lg:col-span-1">
+    <div class="lg:col-span-1 ">
+      
       <!-- Rendering title -->
       <h2
-        class="text-balance text-2xl font-bold text-esmerald-500 dark:text-esmerald-500 md:text-5xl"
+        class="text-balance text-2xl font-extrabold text-esmerald-500 dark:text-esmerald-500 md:text-5xl"
       >
         {title}
       </h2>
+      
       <!-- Rendering subtitle -->
       {
         subTitle && (
-          <p class="mt-2 text-pretty text-neutral-600 dark:text-neutral-400 md:mt-4">
+          <p class="mb-4 max-w-prose text-pretty font-dark text-neutral-800 dark:font-white dark:text-neutral-200 sm:text-lg">
             {subTitle}
           </p>
         )
       }
+
+      <div class="mt-7 grid w-full gap-3 sm:inline-flex">
+        {primaryBtn && 
+        <PrimaryCTA title={primaryBtn} url={primaryBtnURL} />
+      }
+      
+    </div>
     </div>
 
     <!-- Block to display the IconBlock components -->
@@ -70,38 +85,17 @@ const { title, subTitle, src, alt, features } = Astro.props;
           features &&
             features.map((feature) => (
               <IconBlock heading={feature.heading} content={feature.content}>
-                <Icon name={feature.svg} />
+                <Icon name={feature.png} />
               </IconBlock>
             ))
         }
+        
+         
       </div>
+      
     </div>
   </div>
-  <div class="flex flex-col gap-y-10">
-    <div class="flex flex-col items-center">
-      <h2
-        class="text-balance text-2xl font-bold text-esmerald-500 dark:text-esmerald-500 md:text-5xl"
-      >
-        {title}
-      </h2>
-      {
-        subTitle && (
-          <p class="mt-2 text-pretty text-neutral-600 dark:text-neutral-400 md:mt-4 lg:max-w-[75%]">
-            {subTitle}
-          </p>
-        )
-      }
-      <!-- <h4>Subtitulo</h4> -->
-    </div>
-    <div class="grid grid-cols-4">
-      {
-        features &&
-          features.map((feature) => (
-            <IconBlock heading={feature.heading} content={feature.content} >
-              <Icon name={feature.svg}/>
-            </IconBlock>
-          ))
-      }
-    </div>
-  </div>
+  <!-- sin el relleno, texto ver, sin borde, boton de tipo link(solo texto) -->
+  
+  
 </section>

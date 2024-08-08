@@ -5,6 +5,7 @@ const navBarLinks = [
   { name: "Servicios", url: "/services" },
   // { name: "Blog", url: "/blog" },
   { name: "Contacto", url: "/contact" },
+
 ];
 // An array of links for footer
 const footerLinks = [
@@ -28,11 +29,9 @@ const footerLinks = [
 ];
 // An object of links for social icons
 const socialLinks = {
-  facebook: "https://www.facebook.com/",
-  x: "https://twitter.com/",
-  github: "https://github.com/mearashadowfax/ScrewFast",
-  google: "https://www.google.com/",
-  slack: "https://slack.com/",
+  instagram: "https://www.instagram.com/multipla_consultora?igsh=MWI5dWk1cHBpNThpbQ==",
+  whatsapp: "https://w.app/multipla",
+  linkedln: "https://www.linkedin.com/company/consultoram%C3%BAltipla/",
 };
 
 export default {

@@ -22,13 +22,21 @@ This is the main structure for the page.
 We set the language of the page to English and add classes for scrollbar and scroll behavior.
 -->
 <html lang={lang} class="scrollbar-hide lenis lenis-smooth scroll-pt-16">
+  
   <head>
-    <!-- Adding metadata to the HTML document -->
-    <Meta meta={meta} structuredData={structuredData} />
-    <!-- Define the title of the page -->
-    <title>{title}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{title ? `${title} | Multipla` : 'Multipla'}</title>
+    <link rel="icon" href="/src/images/multipla/Logo_Multipla_solo_negro.png" type="image/png">
+    
+
     <script is:inline>
+      // Forzar el tema claro al cargar la página
+      localStorage.setItem('hs_theme', 'light');
+      document.documentElement.classList.remove('dark');
+      
       // Script to handle dark mode. It will check if the theme is stored in localStorage or if dark theme is preferred by system settings
+      /*
       if (
         localStorage.getItem("hs_theme") === "dark" ||
         (!("hs_theme" in localStorage) &&
@@ -38,6 +46,8 @@ We set the language of the page to English and add classes for scrollbar and scr
       } else {
         document.documentElement.classList.remove("dark");
       }
+
+      */
     </script>
     <script is:inline src="/scripts/vendor/lenis/lenis.js"></script>
     <script is:inline>
@@ -67,7 +77,9 @@ We set the language of the page to English and add classes for scrollbar and scr
     </div>
     <FooterSection />
     <style>
+      
       /* CSS rules for the page scrollbar and scrolling experience with lenis library */
+      
       .scrollbar-hide::-webkit-scrollbar {
         display: none;
       }
