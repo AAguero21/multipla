@@ -38,19 +38,20 @@ interface Props {
       )
     }
   </div>
-  <div
-    class="flex flex-col items-center justify-center gap-y-2 sm:flex-row sm:gap-x-12 sm:gap-y-0 lg:gap-x-24">
-    <img src={"src/images/multipla/grupo horizonte.png"} alt="Logo 1" class="h-20 max-w-full"/>
-    <img src={"src/images/multipla/logo ferrere.png"} alt="Logo 2" class="h-20 max-w-full"/>
-    <!--
-    <img src={"src/images/multipla/relacionesInstitucionales.png"} alt="Logo 3" class="h-20 max-w-full"/>
-    <img src={"src/images/multipla/asesoriaLegal.png"} alt="Logo 4" class="h-20 max-w-full"/>
-    -->
-
-    </div>
+  <div class="flex flex-wrap items-center justify-center gap-y-2 sm:gap-x-12 sm:gap-y-0 lg:gap-x-24 max-w-full overflow-hidden">
+    <img src="src/images/multipla/grupo horizonte.png" alt="Logo 1" class="h-20 w-auto max-w-full object-contain"/>
+    <img src="src/images/multipla/logo ferrere.png" alt="Logo 2" class="h-20 w-auto max-w-full object-contain"/>
+    <img src="src/images/multipla/ribeiro.png" alt="Logo 3" class="h-24 w-auto max-w-full object-contain"/>
+    <img src="src/images/multipla/marca_making_02.png" alt="Logo 4" class="h-16 w-auto max-w-full object-contain"/>
+    <img src="src/images/multipla/petrogas.png" alt="Logo 5" class="h-20 w-auto max-w-full object-contain"/>
+    <img src="src/images/multipla/galileo.png" alt="Logo 6" class="h-20 w-auto max-w-full object-contain"/>
+    <img src="src/images/multipla/Rio limay recursos web_edited.png" alt="Logo 7" class="h-14 w-auto max-w-full object-contain"/>
+    <img src="src/images/multipla/ecokit.png" alt="Logo 8" class="h-24 w-auto max-w-full object-contain"/>
+</div>
 
    
   </div>
+
   <div class="mt-7 grid w-full gap-3 sm:inline-flex justify-center">
     {primaryBtn && 
     <PrimaryCTA title={primaryBtn} url={primaryBtnURL} />
