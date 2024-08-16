@@ -4,7 +4,7 @@ import icon from "@images/icon.png";
 import maskableIcon from "@images/icon-maskable.png";
 
 interface Favicon {
-  purpose: 'any' | 'maskable' | 'monochrome';
+  purpose: 'any' | 'monochrome';
   src: ImageMetadata;
   sizes: number[];
 }
