@@ -30,7 +30,7 @@ const footerLinks = [
 // An object of links for social icons
 const socialLinks = {
   instagram: "https://www.instagram.com/multipla_consultora?igsh=MWI5dWk1cHBpNThpbQ==",
-  whatsapp: "https://w.app/multipla",
+  whatsapp: 'https://wa.link/96nxmj',
   linkedln: "https://www.linkedin.com/company/consultoram%C3%BAltipla/",
 };
 

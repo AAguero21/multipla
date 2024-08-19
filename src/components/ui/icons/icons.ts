@@ -1,3 +1,12 @@
+import relLaborales from "src/images/multipla/relacionesLaborales.png";
+import relInstitucionales from "src/images/multipla/relacionesInstitucionales.png";
+import recursosHumanos from "src/images/multipla/rrhh.png";
+import asesoriamieto from "src/images/multipla/asesoriaLegal.png";
+import igIcon from "src/images/multipla/ig_icon.png";
+import liIcon from "src/images/multipla/li_icon.png";
+import wpIcon from "src/images/multipla/wp_icon.png";
+
+
 export const Icons = {
  
   tools: {
@@ -328,20 +337,23 @@ export const Icons = {
   },
 
   linkedlnFooter: {
-    src: "src/images/multipla/li_icon.png",
+    //src: "src/images/multipla/li_icon.png",
+    src: liIcon,
     class: "mt-1 h-8 w-8 flex-shrink-0",
     width: 32,
     height: 32,
   },
   whatsappFooter: {
-    src: "src/images/multipla/wp_icon.png",
+    //src: "src/images/multipla/wp_icon.png",
+    src: wpIcon,
     class: "mt-1 h-8 w-8 flex-shrink-0",
     width: 32,
     height: 32,
   },
 
   instagramFooter: {
-    src: "src/images/multipla/ig_icon.png",
+    //src: "src/images/multipla/ig_icon.png",
+    src: igIcon,
     class: "mt-1 h-8 w-8 flex-shrink-0",
     width: 32,
     height: 32,
@@ -363,7 +375,7 @@ export const Icons = {
 
   
   recurosHumanos: {
-    src: "src/images/multipla/rrhh.png",
+    src:recursosHumanos,
     class: "h-14 w-14 rounded-full",
     width: 50,
     height: 50,
@@ -371,7 +383,7 @@ export const Icons = {
   },
 
   relacionesLaborales: {
-    src: "src/images/multipla/relacionesLaborales.png",
+    src: relLaborales,
     class: "h-12 w-12 rounded-full",
     width: 50,
     height: 50,
@@ -379,7 +391,7 @@ export const Icons = {
   },
 
   relacionesInstitucionales: {
-    src: "src/images/multipla/relacionesInstitucionales.png",
+    src: relInstitucionales,
     class: "h-12 w-12 rounded-full",
     width: 50,
     height: 50,
@@ -387,7 +399,7 @@ export const Icons = {
   },
 
   asesoramientoLegal: {
-    src: "src/images/multipla/asesoriaLegal.png",
+    src: asesoriamieto,
     class: "h-12 w-12 rounded-full",
     width: 50,
     height: 50,

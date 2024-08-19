@@ -1,12 +1,25 @@
 ---
 // Define props from Astro
-const { title, subTitle, primaryBtn,
+const {
+  title,
+  subTitle,
+  primaryBtn,
   primaryBtnURL,
   secondaryBtn,
-  secondaryBtnURL, } = Astro.props;
+  secondaryBtnURL,
+} = Astro.props;
 import PrimaryCTA from "@/components/ui/buttons/PrimaryCTA.astro";
 import SecondaryCTA from "@/components/ui/buttons/SecondaryCTA.astro";
+import grupoHorizonte from "@/images/multipla/grupoHorizonte.png";
+import ferreroLogo from "@/images/multipla/logoFerrere.png";
+import ribeiroLogo from "@/images/multipla/ribeiro.png";
+import makingLogo from "@/images/multipla/marca_making_02.png";
+import petrogasLogo from "@/images/multipla/petrogas.png";
+import galileoLogo from "@/images/multipla/galileo.png";
+import rioLimayLogo from "@/images/multipla/Rio limay recursos web_edited.png";
+import ecokitLogo from "@/images/multipla/ecokit.png";
 import prodeng from "@/images/clients/prodeng.svg";
+import { Image } from "astro:assets";
 
 // Define TypeScript interface for props
 interface Props {
@@ -16,7 +29,6 @@ interface Props {
   primaryBtnURL?: string;
   secondaryBtn?: string;
   secondaryBtnURL?: string;
-
 }
 ---
 
@@ -24,40 +36,83 @@ interface Props {
   class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
 >
   <!-- Title and description -->
-  <div class="mx-auto mb-6 w-full space-y-1 text-center overflow-x-auto">
+  <div class="mx-auto mb-6 w-full space-y-1 overflow-x-auto text-center">
     <h2
-      class="text-balance text-2xl font-bold leading-tight text-esmerald-500 dark:text-esmerald-500 sm:text-3xl md:text-6xl";
+      class="text-balance text-2xl font-bold leading-tight text-esmerald-500 dark:text-esmerald-500 sm:text-3xl md:text-6xl"
+      ;
     >
       {title}
     </h2>
     {
       subTitle && (
-        <p class="text-pretty font-dark text-neutral-800 leading-tight dark:font-white dark:text-neutral-200">
+        <p class="font-dark dark:font-white text-pretty leading-tight text-neutral-800 dark:text-neutral-200">
           {subTitle}
         </p>
       )
     }
   </div>
-  <div class="flex flex-wrap items-center justify-center gap-y-2 sm:gap-x-12 sm:gap-y-0 lg:gap-x-24 max-w-full overflow-hidden">
-    <img src="src/images/multipla/grupo horizonte.png" alt="Logo 1" class="h-20 w-auto max-w-full object-contain"/>
-    <img src="src/images/multipla/logo ferrere.png" alt="Logo 2" class="h-20 w-auto max-w-full object-contain"/>
-    <img src="src/images/multipla/ribeiro.png" alt="Logo 3" class="h-24 w-auto max-w-full object-contain"/>
-    <img src="src/images/multipla/marca_making_02.png" alt="Logo 4" class="h-16 w-auto max-w-full object-contain"/>
-    <img src="src/images/multipla/petrogas.png" alt="Logo 5" class="h-20 w-auto max-w-full object-contain"/>
-    <img src="src/images/multipla/galileo.png" alt="Logo 6" class="h-20 w-auto max-w-full object-contain"/>
-    <img src="src/images/multipla/Rio limay recursos web_edited.png" alt="Logo 7" class="h-14 w-auto max-w-full object-contain"/>
-    <img src="src/images/multipla/ecokit.png" alt="Logo 8" class="h-24 w-auto max-w-full object-contain"/>
-</div>
+  <div
+    class="flex max-w-full flex-wrap items-center justify-center gap-y-2 overflow-hidden sm:gap-x-12 sm:gap-y-0 lg:gap-x-24"
+  >
+    <Image
+      class="h-20 w-auto max-w-full object-contain"
+      src={grupoHorizonte}
+      alt={"Logo GH"}
+      format={"png"}
+    />
 
-   
-  </div>
-
-  <div class="mt-7 grid w-full gap-3 sm:inline-flex justify-center">
-    {primaryBtn && 
-    <PrimaryCTA title={primaryBtn} url={primaryBtnURL} />
-    }
-    {secondaryBtn && 
-    <SecondaryCTA title={secondaryBtn} url={secondaryBtnURL} />
-    }
+    <Image
+      class="h-20 w-auto max-w-full object-contain"
+      src={ferreroLogo}
+      alt={"Logo Ferrere"}
+      format={"png"}
+    />
+    <Image
+      class="h-20 w-auto max-w-full object-contain"
+      src={ribeiroLogo}
+      alt={"Logo ribeiro"}
+      format={"png"}
+    />
+    <Image
+      class="h-20 w-auto max-w-full object-contain"
+      src={makingLogo}
+      alt={"Logo Making"}
+      format={"png"}
+    />
+    <Image
+      class="h-20 w-auto max-w-full object-contain"
+      src={petrogasLogo}
+      alt={"Logo Petrogas"}
+      format={"png"}
+    />
+    <Image
+      class="h-20 w-auto max-w-full object-contain"
+      src={galileoLogo}
+      alt={"Logo Galileo"}
+      format={"png"}
+    />
+    <Image
+      class="h-20 w-auto max-w-full object-contain"
+      src={rioLimayLogo}
+      alt={"Logo rio limay"}
+      format={"png"}
+    />
+    <Image
+      class="h-20 w-auto max-w-full object-contain"
+      src={ecokitLogo}
+      alt={"Logo ecokit"}
+      format={"png"}
+    />
+    <Image
+      class="h-20 w-auto max-w-full object-contain"
+      src={prodeng}
+      alt={"Logo prodeng"}
+      format={"svg"}
+    />
   </div>
 </section>
+
+<div class="mt-7 grid w-full justify-center gap-3 sm:inline-flex">
+  {primaryBtn && <PrimaryCTA title={primaryBtn} url={primaryBtnURL} />}
+  {secondaryBtn && <SecondaryCTA title={secondaryBtn} url={secondaryBtnURL} />}
+</div>

@@ -1,5 +1,6 @@
 ---
 import { Icons } from "./icons.ts";
+import { Image } from "astro:assets";
 
 interface Path {
   d: string;
@@ -8,7 +9,7 @@ interface Path {
 
 const { name } = Astro.props;
 const icon = (Icons as any)[name] || {};
-
+console.log(icon);
 const {
   src,
   class: iconClass,
@@ -23,37 +24,35 @@ const {
   strokeWidth,
   strokeLinecap,
   strokeLinejoin,
-  title
+  title,
 } = icon;
 ---
 
-{src ? (
-  // Renderiza íconos PNG
-  <img
-    src={src}
-    class={iconClass}
-    width={width}
-    height={height}
-    alt={name}
-  />
-) : (
-  // Renderiza íconos SVG
-  <svg
-    class={iconClass}
-    height={height}
-    viewBox={viewBox}
-    width={width}
-    fill={fill}
-    clip-rule={clipRule}
-    fill-rule={fillRule}
-    stroke={stroke}
-    stroke-width={strokeWidth}
-    stroke-linecap={strokeLinecap}
-    stroke-linejoin={strokeLinejoin}
-  >
-    {title && <title>{title}</title>}
-    {paths.map((path: Path) => (
-      <path d={path.d} class={path.class || ""} />
-    ))}
-  </svg>
-)}
+{
+  src ? (
+    // Renderiza íconos PNG
+
+    //<img src={relLaborales} class={iconClass} width={width} height={height} alt={name} />
+    <Image class={iconClass} src={src} alt={"Logo GH"} format={"png"} />
+  ) : (
+    // Renderiza íconos SVG
+    <svg
+      class={iconClass}
+      height={height}
+      viewBox={viewBox}
+      width={width}
+      fill={fill}
+      clip-rule={clipRule}
+      fill-rule={fillRule}
+      stroke={stroke}
+      stroke-width={strokeWidth}
+      stroke-linecap={strokeLinecap}
+      stroke-linejoin={strokeLinejoin}
+    >
+      {title && <title>{title}</title>}
+      {paths.map((path: Path) => (
+        <path d={path.d} class={path.class || ""} />
+      ))}
+    </svg>
+  )
+}

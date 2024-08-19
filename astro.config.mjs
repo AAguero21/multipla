@@ -125,7 +125,7 @@ export default defineConfig({
     gzip: false,
     brotli: true
   })],
-  output: "server", // Cambiado de 'static' a 'server'
+  output: "static", // Cambiado de 'static' a 'server'
   experimental: {
     clientPrerender: true,
     directRenderScript: true
