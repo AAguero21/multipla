@@ -1,5 +1,4 @@
 ---
-// Import necessary components
 import MainLayout from "@/layouts/MainLayout.astro";
 import MainSection from "@components/ui/blocks/MainSection.astro";
 import LeftSection from "@components/ui/blocks/LeftSection.astro";
@@ -7,21 +6,19 @@ import RightSection from "@components/ui/blocks/RightSection.astro";
 import PrimaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
 import "@/styles/styles.css"
 
-// Import necessary images
+
+
+
 import relacionesLaborales from "@images/multipla/relaciones_laborales_2.png";
 import relacionesInstitucionales from "@images/multipla/relaciones_institucionales_2.png";
 import recursosHumanos from "@images/multipla/rrhh_2.png";
 import asesoramientoLegal from "@images/multipla/legal.png";
 
-//import { SITE } from "@data/constants";
-//import aerialView from "@images/multipla/rrhh.png";
-//import personWorking from "@images/person-working.avif";
-
 interface Article {
   isRightSection: boolean;
   title: string;
   subTitle: string;
-  list?:string[];
+  list?: string[];
   btnExists?: boolean;
   btnTitle?: string;
   btnURL?: string;
@@ -40,14 +37,12 @@ const articles: Article[] = [
     isRightSection: true,
     title: "Relaciones Laborales / Gremiales",
     subTitle:
-      "En el departamento de Relaciones Laborales de MÚLTIPLA, gestionamos de manera experta las relaciones con los sindicatos clave en la industria petrolera y de transporte, incluidos Petroleros Privados, Petroleros Jerárquicos, Sindicato de Camioneros, Federación de Camioneros de la República Argentina y UOCRA. Ofrecemos asesoramiento integral en contrataciones laborales y nos encargamos de la interpretación y aplicación de los Convenios Colectivos de Trabajo, garantizando el cumplimiento normativo y la equidad laboral. Además, negociamos hábilmente en conflictos individuales y colectivos, priorizando el diálogo y la resolución pacífica. Diseñamos e implementamos políticas disciplinarias efectivas y proporcionamos orientación en reestructuraciones de personal y despidos laborales, buscando siempre salvaguardar los derechos e intereses tanto de la empresa como de los trabajadores. ",
-    list:['Ofrecemos asesoramiento integral en contrataciones laborales y nos encargamos de la interpretación y aplicación de los Convenios Colectivos de Trabajo'],
+      "En el departamento de Relaciones Laborales de MÚLTIPLA, gestionamos de manera experta las relaciones con los sindicatos clave en la industria petrolera y de transporte, incluidos Petroleros Privados, Petroleros Jerárquicos, Sindicato de Camioneros, Federación de Camioneros de la República Argentina y UOCRA. Ofrecemos asesoramiento integral en contrataciones laborales y nos encargamos de la interpretación y aplicación de los Convenios Colectivos de Trabajo, garantizando el cumplimiento normativo y la equidad laboral. Además, negociamos hábilmente en conflictos individuales y colectivos, priorizando el diálogo y la resolución pacífica. Diseñamos e implementamos políticas disciplinarias efectivas y proporcionamos orientación en reestructuraciones de personal y despidos laborales, buscando siempre salvaguardar los derechos e intereses tanto de la empresa como de los trabajadores.",
+    list: ['Ofrecemos asesoramiento integral en contrataciones laborales y nos encargamos de la interpretación y aplicación de los Convenios Colectivos de Trabajo'],
     single: true,
     imgOne: relacionesLaborales,
     imgOneAlt: "",
     imgClass: "large-img-right",
-    //imgTwo: personWorking,
-    //imgTwoAlt: "",
   },
   {
     isRightSection: false,
@@ -56,10 +51,7 @@ const articles: Article[] = [
       "Facilitamos el contacto con municipios para acciones comunitarias, actuamos como representantes en Cámaras de servicios petroleros, transporte y ambiente. Representamos ante Autoridades de Aplicación y gestionamos conflictos con superficiarios y ambientales. Evaluamos medios y diseñamos estrategias de publicidad, promovemos la Responsabilidad Social Empresarial (RSE) y ofrecemos alianzas estratégicas.",
     img: relacionesInstitucionales,
     imgAlt: "",
-    imgClass: "large-img"
-    // btnExists: true,
-    // btnTitle: "Learn More",
-    // btnURL: "#",
+    imgClass: "large-img",
   },
   {
     isRightSection: true,
@@ -70,9 +62,6 @@ const articles: Article[] = [
     imgOne: recursosHumanos,
     imgOneAlt: "",
     imgClass: "large-img-right",
-    
-    //imgTwo: aerialView,
-    //imgTwoAlt: "",
   },
   {
     isRightSection: false,
@@ -82,16 +71,12 @@ const articles: Article[] = [
     img: asesoramientoLegal,
     imgAlt: "",
     imgClass: "small-img",
-    //btnExists: true,
-    //btnTitle: "Contatanos para saber mas",
-    //btnURL: "/contact"
-    
   },
-  
-  
 ];
 
 const pageTitle: string = `Servicios`;
+
+
 ---
 
 <MainLayout
@@ -104,33 +89,28 @@ const pageTitle: string = `Servicios`;
     "name": "Expert Consultation Services | ScrewFast",
     "description": "Uniting expertise with your vision, ScrewFast provides exceptional service and comprehensive solutions in the hardware and construction industry, from consultation to project completion.",
     "isPartOf": {
-        "@type": "WebSite",
-        "url": "https://screwfast.uk",
-        "name": "ScrewFast",
-        "description": "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs."
+      "@type": "WebSite",
+      "url": "https://screwfast.uk",
+      "name": "ScrewFast",
+      "description": "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs."
     },
     "inLanguage": "en-US"
   }}
 >
 
-
-  <!--MainSection is the introductory section of the page, it also contains a CTA button-->
   <MainSection
     title="Soluciones Integrales para tu Empresa"
     subTitle="En Multipla, ofrecemos una amplia gama de servicios especializados en recursos humanos, legal y relaciones laborales. Desde asesoramiento legal hasta gestión de conflictos laborales, estamos aquí para impulsar el éxito y la tranquilidad de tu empresa."
     btnExists={false}
-    btnTitle="Contatanos para saber mas"
+    btnTitle="Contáctanos para saber más"
     btnURL="/contact"
   />
 
-
-
-
-  
   {
     articles.map(article => {
       return article.isRightSection ? (
         <RightSection
+          class="animate-section" 
           title={article.title}
           subTitle={article.subTitle}
           single={article.single}
@@ -144,6 +124,7 @@ const pageTitle: string = `Servicios`;
         />
       ) : (
         <LeftSection
+          class="animate-section"
           title={article.title}
           subTitle={article.subTitle}
           img={article.img}
@@ -152,21 +133,18 @@ const pageTitle: string = `Servicios`;
           btnTitle={article.btnTitle}
           btnURL={article.btnURL}
           imgClass={article.imgClass}
-          
         />
       );
     })
   }
 
-
-  <div class="grid place-items-center mb-16">
+  <div class=" animate-section grid place-items-center mb-16">
     <PrimaryCTA
       title="Contáctanos para saber más"
       url="/contact"
     />
   </div>
 
-
-
+  
 
 </MainLayout>

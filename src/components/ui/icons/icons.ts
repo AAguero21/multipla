@@ -2,9 +2,10 @@ import relLaborales from "src/images/multipla/relacionesLaborales.png";
 import relInstitucionales from "src/images/multipla/relacionesInstitucionales.png";
 import recursosHumanos from "src/images/multipla/rrhh.png";
 import asesoriamieto from "src/images/multipla/asesoriaLegal.png";
-import igIcon from "src/images/multipla/ig_icon.png";
-import liIcon from "src/images/multipla/li_icon.png";
-import wpIcon from "src/images/multipla/wp_icon.png";
+import igIcon from "src/images/multipla/igLogoColorGrande.png";
+import liIcon from "src/images/multipla/linkedlnLogoColor.png";
+import wpIcon from "src/images/multipla/wpLogoColor.png";
+
 
 
 export const Icons = {
@@ -346,7 +347,7 @@ export const Icons = {
   whatsappFooter: {
     //src: "src/images/multipla/wp_icon.png",
     src: wpIcon,
-    class: "mt-1 h-8 w-8 flex-shrink-0",
+    class: "mt-1 h-10 w-10 flex-shrink-0",
     width: 32,
     height: 32,
   },

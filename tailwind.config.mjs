@@ -63,7 +63,16 @@ export default {
       red: colors.red, // Used for bookmark icon
       zinc: colors.zinc, // Used mainly for box-shadow
     },
-    extend: {},
+    extend: {
+      fadeIn: {
+        '0%': { opacity: '0', transform: 'translateY(10px)' },
+        '100%': { opacity: '1', transform: 'translateY(0)' },
+      },
+      },
+      animation: {
+        fadeIn: 'fadeIn 0.5s ease-out',
+        // Puedes agregar más animaciones aquí
+      },
   },
   plugins: [
     require("tailwindcss/nesting"),

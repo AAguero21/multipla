@@ -1,12 +1,14 @@
 ---
 // Importing necessary components
-import Meta from "@components/Meta.astro";
+
 import Navbar from "@components/sections/Navbar.astro";
 import FooterSection from "@components/sections/FooterSection.astro";
 import { SITE } from "@data/constants";
 
 // Setting expected props
 const { title = SITE.title, meta, structuredData, lang = "en" } = Astro.props;
+
+
 
 // Interface to type-check the properties
 interface Props {
@@ -15,6 +17,8 @@ interface Props {
   structuredData?: object;
   lang?: string;
 }
+
+
 ---
 
 <!--
@@ -28,7 +32,7 @@ We set the language of the page to English and add classes for scrollbar and scr
     <title>{title ? `${title} | Multipla` : "Multipla"}</title>
     <link
       rel="icon"
-      href="/src/images/multipla/Logo_Multipla_solo_negro.png"
+      href="/img/LogoMultiplaSoloNegro.png"
       type="image/png"
     />
 
@@ -36,8 +40,9 @@ We set the language of the page to English and add classes for scrollbar and scr
       // Forzar el tema claro al cargar la página
       localStorage.setItem("hs_theme", "light");
       document.documentElement.classList.remove("dark");
+      
 
-      // Script to handle dark mode. It will check if the theme is stored in localStorage or if dark theme is preferred by system settings
+      // Codigo utilizable cuando incoorporemos el boton de temas de nuevo 
       /*
       if (
         localStorage.getItem("hs_theme") === "dark" ||
@@ -50,7 +55,9 @@ We set the language of the page to English and add classes for scrollbar and scr
       }
 
       */
+
     </script>
+
     <script is:inline src="/scripts/vendor/lenis/lenis.js"></script>
     <script is:inline>
       // Script to handle Lenis library settings for smooth scrolling
@@ -63,10 +70,41 @@ We set the language of the page to English and add classes for scrollbar and scr
 
       requestAnimationFrame(raf);
     </script>
+    
+
   </head>
-  <body
-    class="bg-white selection:bg-emerald-400 selection:text-neutral-700 dark:bg-neutral-800"
-  >
+  <body class="bg-white selection:bg-emerald-400 selection:text-neutral-700 dark:bg-neutral-800">
+    
+    
+    <!-- Animation gspa -->
+    <script>
+      document.addEventListener('DOMContentLoaded', async () => {
+        const { gsap } = await import('gsap');
+        const { ScrollTrigger } = await import('gsap/ScrollTrigger');
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.from(".animate-section", {
+          opacity: 0,
+          y: 60,
+          duration: 2,
+          ease: "power2.out",
+          stagger: window.innerWidth < 768 ? 1 : 2,
+          scrollTrigger: {
+            trigger: ".animate-section",
+            start: "top 60%",
+            toggleActions: "play none none none",
+            onRefresh: () => {
+              // Reiniciar las animaciones al recargar la página
+              gsap.set(".animate-section", { opacity: 0, y: 60, scale: 0.95 });}
+          },
+          
+        });
+      });
+    </script>
+
+  
+  
     <!--
     Setting up the main structure of the page.
     The Navbar is placed at the top, with a slot for the main content and FooterSection at the bottom.
@@ -78,6 +116,8 @@ We set the language of the page to English and add classes for scrollbar and scr
       </main>
     </div>
     <FooterSection />
+
+    
     <style>
       /* CSS rules for the page scrollbar and scrolling experience with lenis library */
 
@@ -110,6 +150,30 @@ We set the language of the page to English and add classes for scrollbar and scr
       .lenis.lenis-scrolling iframe {
         pointer-events: none;
       }
+
+      /* CSS for animated sections */
+      .animate-section {
+        opacity: 0; 
+        transform: translateY(30px) scale(0.9); 
+        filter: blur(3px); 
+        transition: opacity 0.6s ease, transform 0.6s ease, filter 0.6s ease, box-shadow 0.6s ease;
+        margin-bottom: 50px; 
+        box-shadow: 0 0 0 rgba(0,0,0,0); 
+      }
+      .animate-section.visible {
+        opacity: 1;
+        transform: translateY(0) scale(1); 
+        filter: blur(0); 
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+      }
+
     </style>
+
+    <script>
+      window.addEventListener('beforeunload', () => {
+      window.scrollTo(0, 0);});
+    </script>
+
   </body>
 </html>
+

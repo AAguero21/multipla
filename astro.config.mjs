@@ -6,6 +6,8 @@ import compressor from "astro-compressor";
 import starlight from "@astrojs/starlight";
 import netlify from "@astrojs/netlify";
 
+import react from "@astrojs/react";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://screwfast.uk",
@@ -124,8 +126,8 @@ export default defineConfig({
   }), compressor({
     gzip: false,
     brotli: true
-  })],
-  output: "static", // Cambiado de 'static' a 'server'
+  }), react()],
+  output: "static",
   experimental: {
     clientPrerender: true,
     directRenderScript: true

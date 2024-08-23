@@ -4,7 +4,7 @@ import { Image } from "astro:assets";
 import PrimaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
 
 // Destructure the props passed to the Astro component
-const { title, subTitle, btnExists, btnTitle, btnURL, img, imgAlt, imgClass} =
+const { title, subTitle, btnExists, btnTitle, btnURL, img, imgAlt, imgClass, class:className} =
   Astro.props;
 
   // Define TypeScript interface for props
@@ -17,12 +17,13 @@ interface Props {
   img: any;
   imgAlt: any;
   imgClass?: string;
+  class?: any;
 }
 ---
 
 <!-- The root section of the component -->
 <section
-  class="mx-auto max-w-[85rem] items-center gap-8 px-4 py-10 sm:px-6 sm:py-16 md:grid md:grid-cols-2 lg:grid lg:grid-cols-2 lg:px-8 lg:py-14 xl:gap-16 2xl:max-w-full"
+class={` ${className} mx-auto max-w-[85rem] items-center gap-8 px-4 py-10 sm:px-6 sm:py-16 md:grid md:grid-cols-2 lg:grid lg:grid-cols-2 lg:px-8 lg:py-14 xl:gap-16 2xl:max-w-full }`}
 >
   <!-- The Image component which renders the image -->
   <Image

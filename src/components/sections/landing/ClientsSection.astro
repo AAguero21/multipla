@@ -33,7 +33,7 @@ interface Props {
 ---
 
 <section
-  class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
+  class=" animate-section mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
 >
   <!-- Title and description -->
   <div class="mx-auto mb-6 w-full space-y-1 overflow-x-auto text-center">
@@ -51,68 +51,200 @@ interface Props {
       )
     }
   </div>
-  <div
-    class="flex max-w-full flex-wrap items-center justify-center gap-y-2 overflow-hidden sm:gap-x-12 sm:gap-y-0 lg:gap-x-24"
-  >
-    <Image
-      class="h-20 w-auto max-w-full object-contain"
-      src={grupoHorizonte}
-      alt={"Logo GH"}
-      format={"png"}
-    />
-
-    <Image
-      class="h-20 w-auto max-w-full object-contain"
-      src={ferreroLogo}
-      alt={"Logo Ferrere"}
-      format={"png"}
-    />
-    <Image
-      class="h-20 w-auto max-w-full object-contain"
-      src={ribeiroLogo}
-      alt={"Logo ribeiro"}
-      format={"png"}
-    />
-    <Image
-      class="h-20 w-auto max-w-full object-contain"
-      src={makingLogo}
-      alt={"Logo Making"}
-      format={"png"}
-    />
-    <Image
-      class="h-20 w-auto max-w-full object-contain"
-      src={petrogasLogo}
-      alt={"Logo Petrogas"}
-      format={"png"}
-    />
-    <Image
-      class="h-20 w-auto max-w-full object-contain"
-      src={galileoLogo}
-      alt={"Logo Galileo"}
-      format={"png"}
-    />
-    <Image
-      class="h-20 w-auto max-w-full object-contain"
-      src={rioLimayLogo}
-      alt={"Logo rio limay"}
-      format={"png"}
-    />
-    <Image
-      class="h-20 w-auto max-w-full object-contain"
-      src={ecokitLogo}
-      alt={"Logo ecokit"}
-      format={"png"}
-    />
-    <Image
-      class="h-20 w-auto max-w-full object-contain"
-      src={prodeng}
-      alt={"Logo prodeng"}
-      format={"svg"}
-    />
+  <div class="carousel-container">
+    <div class="carousel">
+      <div class="carousel-slide">
+        <Image
+          class="carousel-image large-logo"
+          src={grupoHorizonte}
+          alt="Logo GH"
+          format="png"
+        />
+      </div>
+      <div class="carousel-slide">
+        <Image
+          class="carousel-image large-logo"
+          src={ferreroLogo}
+          alt="Logo Ferrere"
+          format="png"
+        />
+      </div>
+      <div class="carousel-slide">
+        <Image
+          class="carousel-image large-logo"
+          src={ribeiroLogo}
+          alt="Logo Ribeiro"
+          format="png"
+        />
+      </div>
+      <div class="carousel-slide">
+        <Image
+          class="carousel-image"
+          src={makingLogo}
+          alt="Logo Making"
+          format="png"
+        />
+      </div>
+      <div class="carousel-slide">
+        <Image
+          class="carousel-image large-logo"
+          src={petrogasLogo}
+          alt="Logo Petrogas"
+          format="png"
+        />
+      </div>
+      <div class="carousel-slide">
+        <Image
+          class="carousel-image large-logo"
+          src={galileoLogo}
+          alt="Logo Galileo"
+          format="png"
+        />
+      </div>
+      <div class="carousel-slide">
+        <Image
+          class="carousel-image small-logo"
+          src={rioLimayLogo}
+          alt="Logo Rio Limay"
+          format="png"
+        />
+      </div>
+      <div class="carousel-slide">
+        <Image
+          class="carousel-image large-logo"
+          src={ecokitLogo}
+          alt="Logo Ecokit"
+          format="png"
+        />
+      </div>
+      <div class="carousel-slide">
+        <Image
+          class="carousel-image small-logo"
+          src={prodeng}
+          alt="Logo Prodeng"
+          format="svg"
+        />
+      </div>
+    </div>
+    <button class="carousel-prev">&lt;</button>
+    <button class="carousel-next">&gt;</button>
   </div>
 </section>
 
-<div class="mt-7 grid w-full justify-center gap-3 sm:inline-flex">
+<div class=" animate-section mt-7 grid w-full justify-center gap-3 sm:inline-flex">
   {primaryBtn && <PrimaryCTA title={primaryBtn} url={primaryBtnURL} />}
   {secondaryBtn && <SecondaryCTA title={secondaryBtn} url={secondaryBtnURL} />}
 </div>
+
+
+<style>
+  .carousel-container {
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+
+  
+}
+
+.carousel {
+  display: flex;
+  transition: transform 1s ease-in-out;
+  align-items: center; /* Centra verticalmente las imágenes */
+}
+
+.carousel-slide {
+  min-width: 100%;
+}
+
+@media (min-width: 768px) {
+  .carousel-slide {
+    min-width: 33.33%; /* Muestra tres imágenes por vez en pantallas grandes */
+  }
+}
+
+.carousel-image {
+  display: block;
+  width: auto;
+  max-height: 80px;
+  margin: 0 auto;
+}
+
+.carousel-image.small-logo {
+  max-height: 65px;
+}
+
+.carousel-image.large-logo {
+  max-height: 110px;
+}
+
+.carousel-prev,
+.carousel-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #65b22c;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.carousel-prev:hover,
+.carousel-next:hover {
+  background-color: #a3d180;
+}
+
+.carousel-prev {
+  left: 10px;
+}
+
+.carousel-next {
+  right: 10px;
+}
+
+</style>
+
+
+
+<script type="module">
+  document.addEventListener('DOMContentLoaded', () => {
+  const carousel = document.querySelector('.carousel');
+  const prevButton = document.querySelector('.carousel-prev');
+  const nextButton = document.querySelector('.carousel-next');
+
+  let index = 0;
+  const slides = document.querySelectorAll('.carousel-slide');
+  const intervalTime = 3000; // Tiempo en milisegundos para el cambio automático
+
+  const updateCarousel = () => {
+    const visibleSlides = getVisibleSlides();
+    const offset = -index * (100 / visibleSlides);
+    carousel.style.transform = `translateX(${offset}%)`;
+  };
+
+  const goToNextSlide = () => {
+    const visibleSlides = getVisibleSlides();
+    index = (index < slides.length - visibleSlides) ? index + 1 : 0;
+    updateCarousel();
+  };
+
+  prevButton.addEventListener('click', () => {
+    const visibleSlides = getVisibleSlides();
+    index = (index > 0) ? index - 1 : slides.length - visibleSlides;
+    updateCarousel();
+  });
+
+  nextButton.addEventListener('click', goToNextSlide);
+
+  // Cambio automático de diapositiva
+  setInterval(goToNextSlide, intervalTime);
+
+  const getVisibleSlides = () => {
+    return window.innerWidth >= 768 ? 3 : 1; // Muestra 3 imágenes en pantallas grandes y 1 en pantallas pequeñas
+  };
+
+  // Actualizar el carrusel al redimensionar la ventana
+  window.addEventListener('resize', updateCarousel);
+});
+</script>
