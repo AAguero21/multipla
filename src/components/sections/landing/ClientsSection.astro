@@ -18,6 +18,7 @@ import petrogasLogo from "@/images/multipla/petrogas.png";
 import galileoLogo from "@/images/multipla/galileo.png";
 import rioLimayLogo from "@/images/multipla/Rio limay recursos web_edited.png";
 import ecokitLogo from "@/images/multipla/ecokit.png";
+import geoControlLogo from "@/images/multipla/geoControl.png";
 import prodeng from "@/images/clients/prodeng.svg";
 import { Image } from "astro:assets";
 
@@ -55,6 +56,15 @@ interface Props {
     <div class="carousel">
       <div class="carousel-slide">
         <Image
+          class="carousel-image small-logo"
+          src={prodeng}
+          alt="Logo Prodeng"
+          format="svg"
+        />
+      </div>
+
+      <div class="carousel-slide">
+        <Image
           class="carousel-image large-logo"
           src={grupoHorizonte}
           alt="Logo GH"
@@ -64,8 +74,8 @@ interface Props {
       <div class="carousel-slide">
         <Image
           class="carousel-image large-logo"
-          src={ferreroLogo}
-          alt="Logo Ferrere"
+          src={geoControlLogo}
+          alt="Logo GeoControl"
           format="png"
         />
       </div>
@@ -117,14 +127,7 @@ interface Props {
           format="png"
         />
       </div>
-      <div class="carousel-slide">
-        <Image
-          class="carousel-image small-logo"
-          src={prodeng}
-          alt="Logo Prodeng"
-          format="svg"
-        />
-      </div>
+
     </div>
     <button class="carousel-prev">&lt;</button>
     <button class="carousel-next">&gt;</button>
