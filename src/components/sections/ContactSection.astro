@@ -77,7 +77,7 @@ if (Astro.request.method === "POST") {
 
       const mailOptions = {
         from: process.env.EMAIL_USER,
-        to: "postulaciones@multipla.com.ar",
+        to: "contacto@multipla.com.ar",
         replyTo: email,
         subject: `Nueva consulta recibida de: ${nombre} ${apellido}`,
         text: `Detalle consulta web:\nNombre: ${nombre}\nApellido: ${apellido}\nEmail: ${email}\nTeléfono: ${telefono}\nConsulta: ${consulta}`,
